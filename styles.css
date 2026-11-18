@@ -1,0 +1,298 @@
+
+/* Lightmode */
+
+:root {
+  --page-bg: #fff8f2;
+  --card-bg: #ffffff;
+  --text-color: #7c2d12;
+
+  --primary-color: #e76f51;
+  --hover-color: #c2410c;
+  --active-color: #9a3412;
+
+  --chart-bg: #ffe8d6;
+
+  --tooltip-bg: #7c2d12;
+  --tooltip-text: #ffffff;
+
+  --bar-color: #e76f51;
+  --bar-hover: #c2410c;
+
+  --label-color: #7c2d12;
+  --stat-bg: #fff0e5;
+}
+
+/* Dark Mode*/
+
+body.dark-mode {
+  --page-bg: #0f172a;
+  --card-bg: #1e293b;
+  --text-color: #f0fdfa;
+
+  --primary-color: #0f766e;
+  --hover-color: #0d9488;
+  --active-color: #115e59;
+
+  --chart-bg: #273449;
+
+  --tooltip-bg: #0f766e;
+  --tooltip-text: #ffffff;
+
+  --bar-color: #14b8a6;
+  --bar-hover: #5eead4;
+
+  --label-color: #ccfbf1;
+  --stat-bg: #273449;
+}
+
+/* Main styles */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--page-bg);
+  color: var(--text-color);
+
+  margin: 0;
+  padding: 30px;
+
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+
+  background-color: var(--card-bg);
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  transition: background-color 0.3s;
+}
+
+h1 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+p {
+  color: var(--text-color);
+}
+
+/* Buttons */
+
+button {
+  background-color: var(--primary-color);
+  color: #ffffff;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 12px 20px;
+  margin: 10px 5px 10px 0;
+
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+button.active {
+  background-color: var(--active-color);
+}
+
+button.active:hover {
+  background-color: var(--hover-color);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--bar-hover);
+  outline-offset: 3px;
+}
+
+/*Toggle */
+
+#themeToggle {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+/* Stats */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.stat-card {
+  background-color: var(--stat-bg);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-card h2 {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 12px;
+  color: var(--text-color);
+}
+
+.stat-card p {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* Chart */
+
+#chart {
+  margin-top: 30px;
+  min-height: 250px;
+
+  background-color: var(--chart-bg);
+  border-radius: 8px;
+  padding: 10px;
+
+  transition: background-color 0.3s;
+}
+
+#chart svg {
+  display: block;
+  height: auto;
+}
+
+/* Legend */
+
+.chart-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 15px;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+
+  background-color: var(--bar-color);
+  border-radius: 4px;
+}
+
+/*Tooltip */
+
+#tooltip {
+  display: none;
+  position: fixed;
+
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-text);
+
+  padding: 10px 15px;
+  border-radius: 6px;
+
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* SVG animations for bar*/
+
+.bar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+
+  animation: growBar 0.6s ease-out;
+  cursor: pointer;
+}
+
+@keyframes growBar {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.bar:focus-visible {
+  outline: 4px solid var(--text-color);
+  outline-offset: 3px;
+
+  stroke: var(--card-bg);
+  stroke-width: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    animation: none;
+  }
+
+  body,
+  main,
+  #chart {
+    transition: none;
+  }
+}
+
+/* Responsive Mobile Layout */
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #salesBtn,
+  #visitsBtn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-card p {
+    font-size: 24px;
+  }
+
+  #chart {
+    margin-top: 20px;
+    min-height: 0;
+    padding: 5px;
+  }
+
+  .chart-legend {
+    margin-top: 12px;
+  }
+}

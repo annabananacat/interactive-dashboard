@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Interactive Dashboard</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main>
+
+    <!-- THEME TOGGLE -->
+    <button
+      id="themeToggle"
+      type="button"
+      aria-pressed="false"
+    >
+      🌙 Dark Mode
+    </button>
+
+    <!-- DASHBOARD HEADING -->
+    <h1>Interactive Dashboard</h1>
+
+    <p id="chartTitle">
+      Monthly Sales Performance
+    </p>
+
+    <!-- DATASET BUTTONS -->
+    <div class="chart-controls">
+      <button id="salesBtn" type="button">
+        Sales
+      </button>
+
+      <button id="visitsBtn" type="button">
+        Website Visits
+      </button>
+    </div>
+
+    <!-- SUMMARY STATISTICS -->
+    <section class="stats-grid" aria-label="Data summary">
+
+      <div class="stat-card">
+        <h2>Total</h2>
+        <p id="totalValue">—</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>Monthly Average</h2>
+        <p id="averageValue">—</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>Highest Month</h2>
+        <p id="highestMonth">—</p>
+      </div>
+
+    </section>
+
+    <!-- SVG CHART -->
+    <div id="chart"></div>
+
+    <!-- DYNAMIC LEGEND -->
+    <div id="chartLegend" class="chart-legend">
+      <span class="legend-color"></span>
+      <span id="legendText">Sales</span>
+    </div>
+
+    <!-- INTERACTIVE TOOLTIP -->
+    <div id="tooltip"></div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
