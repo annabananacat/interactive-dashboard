@@ -13,6 +13,19 @@ and accessibility best practices.
 Users can explore monthly sales and website visits
 through an interactive SVG bar chart.
 
+
+# Interactive Dashboard
+
+## Live Demo
+
+[View the Interactive Dashboard](https://annabananacat.github.io/interactive-dashboard/)
+
+## Preview
+
+![Interactive Dashboard Preview](images/dashboard-preview.png)
+
+
+
 ## Features
 
 - Interactive 12-month SVG bar chart
